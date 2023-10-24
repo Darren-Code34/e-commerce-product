@@ -93,3 +93,68 @@ function plusNumber(){
     productCounter += 1;
     productNumber.textContent = productCounter;
 }
+
+
+
+//add article to the cart
+
+const addBtn = document.querySelector(".add-btn");
+const cartSectionProduct = document.querySelector(".cart-section-product");
+const articleName = document.querySelector(".article-name");
+const priceDiscounted = document.querySelector(".price-discounted");
+const priceDiscountedNumber = document.querySelector(".price-discounted-number")
+
+
+
+addBtn.addEventListener("click", addToCart);
+
+function addToCart(){
+    if(productCounter !== 0 ){
+        console.log(productCounter);
+        
+        cartSectionProduct.innerHTML = "";
+        cartSectionProduct.style.display = "flex";
+        cartSectionProduct.style.textAlign = "left";
+        cartSectionProduct.style.padding = "20px";
+        cartSectionProduct.style.alignItems = "center";
+
+        const productThumbnail = document.createElement("img");
+        productThumbnail.src =  "images/image-product-1-thumbnail.jpg";
+        productThumbnail.classList.add("product-thumbnail");
+
+        const cartDescriptionProduct = document.createElement("div");
+
+        const cartProductName = document.createElement("p");
+        cartProductName.classList.add("cart-product-name");
+        cartProductName.textContent = `${articleName.textContent}`;
+
+        const cartProductPrice = document.createElement("p");
+        cartProductPrice.classList.add("cart-product-price");
+        const cartTotalPrice = document.createElement("span");
+        cartTotalPrice.classList.add("cart-total-price");
+        console.log(Number(priceDiscountedNumber.textContent) * productCounter);
+        cartTotalPrice.textContent = Number(priceDiscountedNumber.textContent) * productCounter;
+
+        cartProductPrice.textContent = `${priceDiscounted.textContent} x ${productCounter} $${cartTotalPrice.textContent}`;
+
+        const trash = document.createElement("img");
+        trash.src = "images/icon-delete.svg";
+        trash.classList.add("trash");
+
+        const checkoutBtnContainer = document.createElement("div");
+        checkoutBtnContainer.classList.add("checkout-btn-container");
+
+        const checkoutBtn = document.createElement("button");
+        checkoutBtn.classList.add("checkout-btn");
+        checkoutBtn.textContent = "Checkout";
+        checkoutBtnContainer.appendChild(checkoutBtn)
+
+        cartDescriptionProduct.appendChild(cartProductName);
+        cartDescriptionProduct.appendChild(cartProductPrice);
+        cartSectionProduct.appendChild(productThumbnail);
+        cartSectionProduct.appendChild(cartDescriptionProduct);
+        cartSectionProduct.appendChild(trash);
+        cart.appendChild(checkoutBtnContainer);
+
+    }
+}
