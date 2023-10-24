@@ -156,5 +156,7 @@ function addToCart(){
         cartSectionProduct.appendChild(trash);
         cart.appendChild(checkoutBtnContainer);
 
+        productCounter = 0;
+        productNumber.textContent = productCounter;
     }
 }
