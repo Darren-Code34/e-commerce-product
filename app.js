@@ -158,5 +158,28 @@ function addToCart(){
 
         productCounter = 0;
         productNumber.textContent = productCounter;
+
+
+        //delete article into the cart
+
+        trash.addEventListener("click", deleteArticle);
+        trash.addEventListener("click", ()=>{
+            checkoutBtnContainer.style.display = "none";
+        })
     }
+}
+
+
+function deleteArticle(){
+    cartSectionProduct.innerHTML = "";
+    cartSectionProduct.style.padding = "60px 0"
+
+    const emptyText = document.createElement("p");
+    emptyText.classList.add("empty-text");
+    emptyText.textContent = "Your cart is empty.";
+    emptyText.style.marginLeft = "auto";
+    emptyText.style.marginRight = "auto";
+
+    cartSectionProduct.appendChild(emptyText);
+    console.log(emptyText.textContent);
 }
