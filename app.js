@@ -193,6 +193,7 @@ function deleteArticle(){
 }
 
 
+
 //display and close the lightbox
 
 const productImg = document.querySelector(".product-img");
@@ -206,6 +207,7 @@ window.onresize = function() {
         crossLightboxIcon.addEventListener("click", hideLightbox);
     } 
     else{
+        lightbox.style.display = "none";
         productImg.removeEventListener("click", showLightbox);
         crossLightboxIcon.removeEventListener("click", hideLightbox);
     }
@@ -218,6 +220,28 @@ function showLightbox(){
 function hideLightbox(){
     lightbox.style.display = "none";
 }
+
+
+//display the large product image
+
+const thumbnails = document.querySelectorAll(".thumbnail");
+let thumbnailIndex = 0;
+
+thumbnails.forEach((thumbnail, i) =>{
+    thumbnail.addEventListener("click", showImageProduct)
+
+    function showImageProduct(){
+        thumbnails.forEach(thumbnail =>{
+            thumbnail.classList.remove("active");
+        })
+
+        productImages[thumbnailIndex].style.display = "none";
+        thumbnails[i].classList.add("active");
+        productImages[i].style.display = "block";
+        thumbnailIndex = i;
+
+    }
+}) 
 
 //lightbox caroussel
 

@@ -293,6 +293,10 @@ a,li{
     cursor: pointer;
 }
 
+.add-btn:hover{
+    opacity: 0.7;
+}
+
 .add-btn img{
     width: 18px;
     color: hsl(0, 0%, 100%);
@@ -465,11 +469,16 @@ a,li{
     .thumbnail{
         width: 80px;
         border-radius: 8px;
+        cursor: pointer;
+    }
+
+    .thumbnail:hover{
+        opacity: 0.7;
     }
 
     .thumbnail.active{
         border: solid 4px hsl(26, 100%, 55%);
-        opacity: 0.5;
+        opacity: 0.7;
     }
 
     .lightbox{
