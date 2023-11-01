@@ -102,7 +102,8 @@ const addBtn = document.querySelector(".add-btn");
 const cartSectionProduct = document.querySelector(".cart-section-product");
 const articleName = document.querySelector(".article-name");
 const priceDiscounted = document.querySelector(".price-discounted");
-const priceDiscountedNumber = document.querySelector(".price-discounted-number")
+const priceDiscountedNumber = document.querySelector(".price-discounted-number");
+const bubbleCart = document.querySelector(".bubble-cart");
 
 
 
@@ -136,6 +137,9 @@ function addToCart(){
         cartTotalPrice.textContent = Number(priceDiscountedNumber.textContent) * productCounter;
 
         cartProductPrice.textContent = `${priceDiscounted.textContent} x ${productCounter} $${cartTotalPrice.textContent}`;
+
+        bubbleCart.textContent = productCounter;
+        bubbleCart.style.display = "block";
 
         const trash = document.createElement("img");
         trash.src = "images/icon-delete.svg";
@@ -171,6 +175,10 @@ function addToCart(){
 
 
 function deleteArticle(){
+
+    bubbleCart.textContent = productCounter;
+    bubbleCart.style.display = "none";
+
     cartSectionProduct.innerHTML = "";
     cartSectionProduct.style.padding = "60px 0"
 
@@ -182,4 +190,66 @@ function deleteArticle(){
 
     cartSectionProduct.appendChild(emptyText);
     console.log(emptyText.textContent);
+}
+
+
+//display and close the lightbox
+
+const productImg = document.querySelector(".product-img");
+const lightbox = document.querySelector(".lightbox");
+const crossLightboxIcon = document.querySelector(".cross-lightbox-icon");
+
+
+window.onresize = function() {
+    if(window.innerWidth >= 1000) {
+        productImg.addEventListener("click", showLightbox);
+        crossLightboxIcon.addEventListener("click", hideLightbox);
+    } 
+    else{
+        productImg.removeEventListener("click", showLightbox);
+        crossLightboxIcon.removeEventListener("click", hideLightbox);
+    }
+}
+
+function showLightbox(){
+    lightbox.style.display = "block";
+}
+
+function hideLightbox(){
+    lightbox.style.display = "none";
+}
+
+//lightbox caroussel
+
+const lightboxPreviousIcon = document.querySelector(".lightbox-previous-icon");
+const lightboxNextIcon = document.querySelector(".lightbox-next-icon");
+const lightboxProductImages = document.querySelectorAll(".lightbox-product-img");
+const lightboxThumbnails = document.querySelectorAll(".lightbox-thumbnail");
+
+let lightboxIndex = 0;
+
+lightboxProductImages.forEach((img, i) =>{
+    if(i !== lightboxIndex){
+        img.style.display = "none";
+    }
+})
+
+lightboxNextIcon.addEventListener("click", lightboxNextImage);
+
+function lightboxNextImage(){
+    lightboxProductImages[lightboxIndex].style.display = "none";
+    lightboxThumbnails[lightboxIndex].classList.remove("active");
+    lightboxIndex = (lightboxIndex + 1) % lightboxProductImages.length;
+    lightboxProductImages[lightboxIndex].style.display = "block";
+    lightboxThumbnails[lightboxIndex].classList.add("active");
+}
+
+lightboxPreviousIcon.addEventListener("click", lightboxPreviousImage);
+
+function lightboxPreviousImage(){
+    lightboxProductImages[lightboxIndex].style.display = "none";
+    lightboxThumbnails[lightboxIndex].classList.remove("active");
+    lightboxIndex = (lightboxIndex - 1 + lightboxProductImages.length) % lightboxProductImages.length;
+    lightboxProductImages[lightboxIndex].style.display = "block";
+    lightboxThumbnails[lightboxIndex].classList.add("active");
 }

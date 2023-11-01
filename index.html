@@ -37,6 +37,7 @@
     <img src="./images/logo.svg" alt="logo" class="logo">
 
     <img src="./images/icon-cart.svg" alt="cart icon" class="cart-icon">
+    <p class="bubble-cart"></p>
 
     <img src="./images/image-avatar.png" alt="avatar" class="user-img">
   </header>
@@ -49,7 +50,8 @@
     </div>
   </div>
   
-  <div class="hero-banner-container">
+  <div class="container">
+    <div class="hero-banner-container">
       <div class="product-img-container">
         <img src="./images/image-product-1.jpg" alt="product image" class="product-img product-1">
         <img src="./images/image-product-2.jpg" alt="product image" class="product-img product-2">
@@ -58,38 +60,70 @@
       </div>
       <img src="./images/icon-previous.svg" alt="previous icon" class="previous-icon arrow">
       <img src="./images/icon-next.svg" alt="next icon" class="next-icon arrow">
-  </div>
-  
-  
-  <main class="main">
-    <h3 class="sup-title">Sneaker Company</h3>
 
-    <h1 class="article-name">Fall Limited Edition Sneakers</h1>
-
-    <p class="product-description">
-      These low-profile sneakers are your perfect casual wear companion. Featuring a 
-      durable rubber outer sole, they’ll withstand everything the weather can offer.
-    </p>
-
-    <div class="command-section">
-      <div class="price-group">
-        <p class="price-discounted">$<span class="price-discounted-number">125.00</span></p>
-        <p class="discount">50%</p>
-        <p class="price">$250.00</p>
+      <div class="thumbnail-container">
+        <img src="./images/image-product-1-thumbnail.jpg" alt="product image" class="thumbnail active">
+        <img src="./images/image-product-2-thumbnail.jpg" alt="product image" class="thumbnail">
+        <img src="./images/image-product-3-thumbnail.jpg" alt="product image" class="thumbnail">
+        <img src="./images/image-product-4-thumbnail.jpg" alt="product image" class="thumbnail">
       </div>
-
-      <div class="counter-product">
-        <img src="./images/icon-minus.svg" alt="minus icon" class="minus-icon">
-
-        <p class="product-number">0</p>
-
-        <img src="./images/icon-plus.svg" alt="plus icon" class="plus-icon">
-      </div>
-
-      <button class="add-btn"><span><img src="./images/icon-cart.svg" alt="cart icon"></span>Add to cart</button>
     </div>
 
-  </main>
+    <main class="main">
+      <h3 class="sup-title">Sneaker Company</h3>
+
+      <h1 class="article-name">Fall Limited Edition Sneakers</h1>
+
+      <p class="product-description">
+        These low-profile sneakers are your perfect casual wear companion. Featuring a 
+        durable rubber outer sole, they’ll withstand everything the weather can offer.
+      </p>
+
+      <div class="command-section">
+        <div class="price-group">
+          <p class="price-discounted">$<span class="price-discounted-number">125.00</span></p>
+          <p class="discount">50%</p>
+          <p class="price">$250.00</p>
+        </div>
+
+        <div class="btn-group">
+          <div class="counter-product">
+            <img src="./images/icon-minus.svg" alt="minus icon" class="minus-icon">
+    
+            <p class="product-number">0</p>
+    
+            <img src="./images/icon-plus.svg" alt="plus icon" class="plus-icon">
+          </div>
+    
+          <button class="add-btn"><span><img src="./images/icon-cart.svg" alt="cart icon"></span>Add to cart</button>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <div class="lightbox">
+    <img src="./images/icon-close.svg" alt="cross icon" class="cross-lightbox-icon">
+
+    <div class="lightbox-img-container">
+      <img src="./images/image-product-1.jpg" alt="product image" class="lightbox-product-img product-1">
+      <img src="./images/image-product-2.jpg" alt="product image" class="lightbox-product-img product-2">
+      <img src="./images/image-product-3.jpg" alt="product image" class="lightbox-product-img product-3">
+      <img src="./images/image-product-4.jpg" alt="product image" class="lightbox-product-img product-4">
+    </div>
+
+    <img src="./images/icon-previous.svg" alt="previous icon" class="lightbox-previous-icon arrow-lightbox">
+    <img src="./images/icon-next.svg" alt="next icon" class="lightbox-next-icon arrow-lightbox">
+
+    <div class="lightbox-thumbnail-container">
+      <img src="./images/image-product-1-thumbnail.jpg" alt="product image" class="lightbox-thumbnail active">
+      <img src="./images/image-product-2-thumbnail.jpg" alt="product image" class="lightbox-thumbnail">
+      <img src="./images/image-product-3-thumbnail.jpg" alt="product image" class="lightbox-thumbnail">
+      <img src="./images/image-product-4-thumbnail.jpg" alt="product image" class="lightbox-thumbnail">
+    </div>
+  </div>
+
+  
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="https://github.com/Darren-Code34/e-commerce-product.git">Darren MIBISSA</a>.
